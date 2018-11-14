@@ -20,6 +20,10 @@ classdef mat1 < entry
             obj.G = set_data('MAT1','G',data{4},'dec',-999);
             obj.NU = set_data('MAT1','NU',data{5},'dec',-999);
             obj.RHO = set_data('MAT1','RHO',data{6},'dec',0.0);
+            if sum([obj.G,obj.NU]==-999) == 2
+                obj.G = 0;
+                obj.NU = 0;
+            end
         end
         
         %%
@@ -43,7 +47,6 @@ classdef mat1 < entry
         
         %%
         function [E,G,NU] = getEGNU(obj)
-            
             % check previous inputs
             if sum([obj.E,obj.G,obj.NU]==-999)>1
                 error(['Error with MAT1 ',numstr(obj.MID),'. More than one of E, G, or NU is blank.'])

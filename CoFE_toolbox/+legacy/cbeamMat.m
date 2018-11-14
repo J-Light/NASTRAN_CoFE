@@ -42,12 +42,12 @@ R(1:3,1:3) = Lambda;
 %% Elastic Stiffness Matrix
 
 % Timoshenko beam equations
-if K1 == 0
+if K1 == 0 | G == 0
     psiY = 0;
 else
     psiY = 12.*E.*Iz./(K1.*A.*G.*L.^2);
 end
-if K2 == 0
+if K2 == 0 | G == 0
     psiZ = 0;
 else
     psiZ = 12.*E.*Iy./(K2.*A.*G.*L.^2);
