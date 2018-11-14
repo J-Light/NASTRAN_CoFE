@@ -41,7 +41,7 @@ classdef cord2r < entry
             dAB = obj.B-obj.A;
             nu = (obj.C-obj.A);
             
-            if (dAB < 1e5*eps) | (nu < 1e5*eps)
+            if (norm(dAB) < 1e5*eps) | (norm(nu) < 1e5*eps)
                 error(['CORD2R ',num2str(obj.CID),'has coincident or close to coincident points.']);
             end
             
