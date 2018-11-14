@@ -43,7 +43,7 @@ classdef conm2 < structure & plot0D
             obj.EID = set_data('CONM2','EID',data{2},'int',[],1,100000000);
             obj.G = set_data('CONM2','G',data{3},'int',[] ,1);
             obj.CID = set_data('CONM2','CID',data{4},'int',0,-1);
-                if obj.CID ~= 0
+                if obj.CID > 0
                     error('CONM2 ',num2str(obj.EID),' has nonzero CID.  CID should be zero or blank.');
                 end
             obj.M  = set_data('CONM2','M',data{5},'dec',[]);

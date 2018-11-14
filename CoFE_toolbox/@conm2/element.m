@@ -6,6 +6,14 @@ if size(h,2)~=1; error(['There should be one and only one GRID with ID# ',num2st
 % nodal locations
 obj.x1 = [FEM.GRID(h).X1;FEM.GRID(h).X2;FEM.GRID(h).X3];
 
+if obj.CID == -1
+    obj.X1 = obj.X1 - obj.x1(1);
+    obj.X2 = obj.X2 - obj.x1(2);
+    obj.X3 = obj.X3 - obj.x1(3);
+else
+    error(['CID > 0 not supported yet for CONM2, EID=', num2str(obj.EID)]);
+end
+
 % global dof
 obj.gdof = FEM.gnum2gdof(:,obj.G==FEM.gnum);
 
