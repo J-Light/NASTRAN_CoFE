@@ -22,6 +22,7 @@ classdef fem
     %% Entry/finite element object arrays - see class files for complete description
     properties
         BLIQ@bliq;
+        CBAR@cbar;
         CBEAM@cbeam;
         CELAS2@celas2;
         CMASS1@cmass1;
@@ -37,11 +38,13 @@ classdef fem
         LOAD@load_obj; % special naming (load_obj) because 'load' name overlaps with MATLAB built-in function
         MAT1@mat1;
         MOMENT@moment;
+        PBAR@pbar;
         PBEAM@pbeam;
         PBEAML@pbeaml;
         PMASS@pmass;
         PROD@prod;
         PSHELL@pshell;
+        RBAR@rbar;
         RBE2@rbe2;
         RBE3@rbe3;
         SPC1@spc1;
