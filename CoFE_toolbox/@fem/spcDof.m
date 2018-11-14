@@ -46,12 +46,14 @@ if isempty(obj.SPC1) == 0
     nspc1 = size(obj.SPC1,2);
     for i = 1:nspc1
         if obj.SPC1(i).SID == CASE_SPC
-            edof = num2str(obj.SPC1(i).C);
+            edof = str2num(num2str(obj.SPC1(i).C)');
             for j = 1:length(edof)
-                gdof = obj.gnum2gdof(str2double(edof(j)),find(obj.SPC1(i).G1==obj.gnum));
-                if  any(gdof == s) == 0 % skip redundant dofs
-                    iter = iter + 1;
-                    s(iter,1) = gdof;
+                for k = 1:size(obj.SPC1(i).Gi, 2)
+                    gdof = obj.gnum2gdof(edof(j), find(obj.SPC1(i).Gi(k)==obj.gnum));
+                    if  any(gdof == s) == 0 % skip redundant dofs
+                        iter = iter + 1;
+                        s(iter,1) = gdof;
+                    end
                 end
             end
         else
