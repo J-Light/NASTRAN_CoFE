@@ -25,7 +25,7 @@ classdef grid_obj < entry
                 obj.X2 = set_data('GRID','X2',data{5},'dec',[]);
                 obj.X3 = set_data('GRID','X3',data{6},'dec',[]);
                 obj.CD = set_data('GRID','CD',data{7},'int',0);
-                if obj.CD ~= 0; error('Nonzero GRID CD not supported.'); end
+                if obj.CD ~= 0; warning('Nonzero GRID CD not supported.'); end
                 obj.PS = set_data('GRID','PS',data{8},'int',-999); % set to -999 if blank
                 obj.SEID = set_data('GRID','SEID',data{9},'int',0);
                 if obj.SEID ~= 0; error('Nonzero GRID SEID not supported.'); end
