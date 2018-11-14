@@ -68,7 +68,11 @@ switch type
             end
         end
         
-        out = sscanf(data, '%f'); % out = str2double(data);
+        if isempty(data)
+            out = 0.0;
+        else
+            out = sscanf(data, '%f'); % out = str2double(data);
+        end
         if isfloat(out) == 0
             error([fieldName,' on  ',entryName,' should be a real number.']);
         end
